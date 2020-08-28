@@ -1,0 +1,48 @@
+def ground(weight):
+  if weight<=2:
+    cost = weight * 1.5 + 20
+  elif weight <=6:
+    cost = weight * 3 + 20
+  elif weight <= 10: 
+    cost = weight * 4 + 20
+  else: 
+    cost = weight * 4.75 + 20
+  return cost
+
+
+premium = 125
+
+
+def drone(weight):
+  if weight<=2:
+    cost = weight * 4.5
+  elif weight <=6:
+    cost = weight * 9
+  elif weight <= 10: 
+    cost = weight * 12
+  else: 
+    cost = weight * 14.25
+  return cost
+
+
+def best(weight):
+  if ground(weight)<drone(weight) and ground(weight)<premium:
+    print('Ground is cheapest and would cost $'+str(ground(weight)))
+  
+  elif not ground(weight)<drone(weight) and ground(weight)<premium:
+    print('Drone is cheapest and would cost $'+str(drone(weight)))
+  
+  elif ground(weight)<drone(weight) and not ground(weight)<premium:
+    print('Premium is cheapest and would cost $'+str(premium))
+  
+  elif not ground(weight)<drone(weight) and not ground(weight)<premium and drone(weight)<premium:
+    print('Drone is cheapest and would cost $'+str(drone(weight)))
+  
+  else: 
+    print('Premium is cheapest and would cost $'+str(premium))
+
+best(4.8)
+best(41.5)
+
+
+
